@@ -1,0 +1,26 @@
+
+  
+  .feeds{
+    text-align: center;
+  }
+  .parent{
+    display: flex;
+    justify-content: space-evenly;
+   
+  }
+  .child{
+    background-color: #f5f5f5;
+    transition: 1s;
+
+  }
+  .child:hover {
+    cursor: pointer;
+    background-color: azure;
+    color: #0066a5 !important;
+  }
+  .img{
+    margin-top: 18px;
+    margin-left: 18px;
+    width: 300px;
+    height: 300px;
+  }
