@@ -1,30 +1,57 @@
 import React from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
-import '../tfeed.css'
+import { getDatabase, ref, onValue, update } from "firebase/database";
+import "../tfeed.css";
+
+import { auth, provider, db } from "../config.js";
 
 function Tfeed(props) {
   const [d, setData] = React.useState(null);
-  const [btnstate,setBtnState] = React.useState(null);
-  const [obj, setObjects] = React.useState(null)
+  const [obj, setObjects] = React.useState([]);
+  const [uid, setUid] = React.useState(null);
 
   const fetchData = (uid) => {
     const dbRef = ref(getDatabase(), `users/${uid}/Twitter`);
     onValue(dbRef, (snapshot) => {
       const data = snapshot.val();
-      console.log(data)
-      
+
       setData(data);
     });
   };
 
   React.useEffect(() => {
     fetchData(props.uid);
+  });
+
+  React.useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUid(user.uid);
+      } else {
+        setUid(null);
+      }
+    });
+    return unsubscribe;
   }, []);
 
-  const btnchange = ()=>{
-    console.log(obj)
-    // push(ref(db, `users/${uid}/${"Twitter"}/${key}`), {report:1});
-  }
+  const btnchange = (key) => {
+    const dbRef = ref(getDatabase(), `users/${uid}/Twitter/${key}`);
+    update(dbRef, { report: 1 })
+      .then(() => {
+        console.log("Value updated successfully.");
+      })
+      .catch((error) => {
+        console.log("Error updating value:", error);
+      });
+  };
+
+  React.useEffect(() => {
+    if (d) {
+      const objectsArray = Object.entries(d).map(([key, value]) => {
+        return { key, value };
+      });
+      setObjects(objectsArray);
+    }
+  }, [d]);
 
   return (
     <div>
@@ -34,15 +61,11 @@ function Tfeed(props) {
           <ul className="list1">
             <li className="item1">URL</li>
           </ul>
-          <ui className="item1">Prediction</ui>
+          <ui className="item2">Prediction</ui>
         </div>
       </div>
-      {d &&
-        Object.entries(d).map(([key, value]) => {
-          const object = { key, value }; // Create an object with the same structure as the original object
-
-          setObjects(prevObjects => [...prevObjects, object]); // Update the state by adding the object to the objects array
-
+      {obj &&
+        obj.map(({ key, value }) => {
           return (
             <div key={key}>
               <div className="profiles-card">
@@ -50,8 +73,12 @@ function Tfeed(props) {
                   <li className="item">{value.url}</li>
                 </ul>
                 <ui className="item">{value.result}</ui>
-                <button className="prof-rep" onClick={btnchange}>
-                  {value.report ? 'Reported' : 'Report Incorrect Predictions'}
+                <button
+                  className="prof-rep"
+                  onClick={() => btnchange(key)}
+                  disabled={value.report}
+                >
+                  {value.report ? "Reported" : "Report Incorrect Predictions"}
                 </button>
               </div>
             </div>

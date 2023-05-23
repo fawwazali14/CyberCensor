@@ -355,7 +355,7 @@ const Social = () => {
                 <div className="ppp">
                   <div className="p2">
                     <h5 for="membership" className="fonts">
-                      Choose a where to detect hate speech:
+                      Choose  where to detect hate speech:
                     </h5>
                     <select
                       name="membership"

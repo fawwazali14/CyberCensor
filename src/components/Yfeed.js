@@ -1,9 +1,12 @@
 import React from 'react'
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue,update,push } from "firebase/database";
 import '../Yfeeds.css'
+
+import { auth, provider, db } from "../config.js";
 
 const Yfeed = (props) => {
   const [d, setData] = React.useState(null);
+  const [uid, setUid] = React.useState(null);
 
   const fetchData = (uid) => {
     const dbRef = ref(getDatabase(), `users/${uid}/Youtube`);
@@ -14,6 +17,27 @@ const Yfeed = (props) => {
       setData(data);
     });
   };
+  const btnchange = (key) => {
+    const dbRef = ref(getDatabase(), `users/${uid}/Youtube/${key}`);
+    update(dbRef, { report: 1 })
+      .then(() => {
+        console.log("Value updated successfully.");
+      })
+      .catch((error) => {
+        console.log("Error updating value:", error);
+      });
+  };
+
+  React.useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUid(user.uid);
+      } else {
+        setUid(null);
+      }
+    });
+    return unsubscribe;
+  }, []);
 
   React.useEffect(() => {
     fetchData(props.uid);
@@ -42,7 +66,13 @@ const Yfeed = (props) => {
               </ul>
               <ui className="item">{value.nzero}</ui>
               <ui className="item">{value.none}</ui>
-              <button className="prof-rep">Report Incorrect Prediction</button>
+              <button
+                  className="prof-rep"
+                  onClick={() => btnchange(key)}
+                  disabled={value.report}
+                >
+                  {value.report ? "Reported" : "Report Incorrect Predictions"}
+                </button>
             </div>
           </div>
         ))}
