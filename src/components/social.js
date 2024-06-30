@@ -36,7 +36,7 @@ const Social = () => {
 
   async function fetchData(x) {
     try {
-      const response = await fetch("http://127.0.0.1:5000/dataa", {
+      const response = await fetch("https://cyberapi-nrnd.onrender.com/dataa", {
         method: "POST",
 
         body: JSON.stringify(x),
@@ -58,7 +58,7 @@ const Social = () => {
 
   async function ML(x) {
     try {
-      const response = await fetch("http://127.0.0.1:8000/ml", {
+      const response = await fetch("https://cyberapi-nrnd.onrender.com/ml", {
         method: "POST",
 
         body: JSON.stringify(x),
