@@ -43,7 +43,7 @@ Link - [here](cyber-censor.vercel.app)
 
 3. Add a video Link,  Link should look like this - https://www.youtube.com/watch?v=X13gVRwnKDA
    
-4. Wait for 30secs to retreive data
+4. Wait for 30secs to retreive data. [The api should pull the data however the api is hosted on free version of [Render](https://dashboard.render.com/), It has the constraint I quote "Your free instance will spin down with inactivity, which can delay requests by 50 seconds or more." , So maybe once it might not respond but eventually it should work ;)]
    
 5. Than request ML model to detect.
 
