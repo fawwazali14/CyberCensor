@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# CyberCensor
+A software aims to automate hate speech detection on social media Platforms.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img width="251" alt="image" src="https://github.com/fawwazali14/CyberCensor/assets/82845339/d80e55b1-5743-4d58-9a3b-6ef97785f577">
 
-## Available Scripts
 
-In the project directory, you can run:
+$Features and Interfaces
+1. Login
+    Use Google account 
+2. Home
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3.Twitter and Youtube link check pages
+<img width="1499" alt="image" src="https://github.com/fawwazali14/CyberCensor/assets/82845339/50f72029-a34c-4614-9965-dbd26a1f3b62">
+<img width="1352" alt="image" src="https://github.com/fawwazali14/CyberCensor/assets/82845339/03b66fa4-c688-4995-aac7-0a157d1d8000">
+4. Youtube video detection screen
+<img width="1499" alt="image" src="https://github.com/fawwazali14/CyberCensor/assets/82845339/e5e24162-1f09-4d4a-9c3b-63e722b0c75c">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**#TechStack**
 
-### `npm test`
+1. React
+2. Javascript
+3. FLask
+4. Python
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**#Testing**
 
-### `npm run build`
+1. Run the python file API first
+2. Downlaod all dependencies with npm
+3. start with npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  
+  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
