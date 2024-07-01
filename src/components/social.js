@@ -108,13 +108,17 @@ const Social = () => {
     } else if (soc === "Facebook") {
     } else if (soc === "Youtube") {
       const unqid = url.split("v=")[1];
-
+      const parameter = {
+        platform: soc,
+        id: unqid,
+      };
       setID(unqid);
+      fetchData(parameter);
     }
   };
 
   const typehandler = () => {
-    console.log("test");
+    console.log(parameter);
     const select = document.getElementById("membership");
     const selectedValue = select.value;
     const parameter = {
