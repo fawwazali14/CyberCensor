@@ -114,7 +114,7 @@ const Social = () => {
       id: id,
       type: selectedValue,
     };
-    print(parameter);
+    console.log(parameter);
     fetchData(parameter);
   };
 
