@@ -36,25 +36,32 @@ const Social = () => {
 
   async function fetchData(x) {
     try {
-      const response = await fetch("https://cyberapi-nrnd.onrender.com/dataa", {
+      const requestOptions = {
         method: "POST",
-
-        body: JSON.stringify(x),
-      });
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(x)
+      };
+  
+      const response = await fetch("https://cyberapi-nrnd.onrender.com/dataa", requestOptions);
       const data = await response.json();
-      console.log(data);
-      if(soc==="Twitter"){
+  
+      console.log("Response data:", data);
+  
+      // Example handling based on your logic
+      if (soc === "Twitter") {
         setData(removeUrls(data.text));
       }
       setYT(true);
       setYTfinaldata(JSON.stringify(data.Description));
       setYTfinalarrdata(JSON.stringify(data.Comments));
       setYTfinalcdata(JSON.stringify(data.Com_count));
-      
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   }
+  
 
   async function ML(x) {
     try {
