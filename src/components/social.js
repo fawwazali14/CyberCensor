@@ -103,8 +103,9 @@ const Social = () => {
         platform: soc,
         id: tweetid,
       };
-      fetchData(parameter);
+      //fetchData(parameter);[Cant be called because X started only Paid Service]
       setID(tweetid);
+      
     } else if (soc === "Facebook") {
     } else if (soc === "Youtube") {
       const unqid = url.split("v=")[1];
@@ -272,7 +273,7 @@ const Social = () => {
               {isLoading ? (
                 <div className="spinner-border" role="status"></div>
               ) : (
-                <p>{removeUrls(JSON.stringify(data))}</p>
+                <p>{"Unfortunately after the musk takeover the X api became a paid one thus making this functionality unavialable, This functionality is covered in Demo video"}</p>
               )}
             </div>
             <div class="modal-footer">
@@ -283,9 +284,9 @@ const Social = () => {
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary" onClick={detectML}>
+              {/* <button type="button" class="btn btn-primary" onClick={detectML}>
                 Detect hate speech
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
