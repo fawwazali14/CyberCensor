@@ -114,6 +114,7 @@ const Social = () => {
   };
 
   const typehandler = () => {
+    console.log("test");
     const select = document.getElementById("membership");
     const selectedValue = select.value;
     const parameter = {
