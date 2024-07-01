@@ -109,7 +109,7 @@ const Social = () => {
     } else if (soc === "Youtube") {
       const unqid = url.split("v=")[1];
       const parameter = {
-        platform: soc,
+        platform: "YouTube",
         id: unqid,
       };
       setID(unqid);
